@@ -49,9 +49,8 @@ nav ul {
 
 .centro {
     width: 100%;
-    border: 2px solid gray;
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -61,7 +60,7 @@ nav ul {
     padding: 7%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
 }
 
 .botones {
@@ -85,13 +84,25 @@ nav ul {
     background-color: black;
 }
 
+.botones button:hover{
+    color: white;
+    border: 1px solid white;
+}
+
+#planes:hover {
+    background: none;
+}
+
 .centro-text {
     padding-left: 1.5%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
 }
 
 .centro-text h1 {
     font-family: "Montserrat-semibold";
-    letter-spacing: 8px;
+    letter-spacing: 5px;
 }
 
 .centro-text p {
@@ -105,6 +116,10 @@ nav ul {
     padding: 3%;
     display: flex;
     justify-content: space-between;
+}
+
+.bar-busqueda:hover {
+    border: 1px solid white;
 }
 
 .bar-busqueda input {
@@ -126,4 +141,112 @@ nav ul {
 
 .centro-der img{
     display: none;
+}
+
+
+// ======================= CURSOS =======================
+.cursos {
+    padding: 7%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.cursos-izq {
+    font-family: "Montserrat-semibold";
+    letter-spacing: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cursos-izq p{
+    font-family: "Montserrat-light";
+    letter-spacing: .5px;
+}
+
+.cursos-der {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 10px;
+}
+
+.carta {
+    padding: 8%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: "Montserrat-semibold";
+    transition: all ease-in-out 0.15s;
+} 
+
+.carta div {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.carta div p {
+    font-family: "Montserrat-light";
+    font-size: 14px;
+}
+
+.carta button {
+    font-size: 14px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background: none;
+    width: 90%;
+    min-height: 35px;
+    align-self: center;
+}
+
+// ============= CARTAS HOVER ==============
+.carta:hover {
+    transform: scale(1.01);
+} 
+
+.carta button:hover {
+    color: white;
+    border: 1px solid white;
+}
+
+
+
+// ================================== ORDENADORES ======================================
+@media screen and (min-width: 1000px) {
+    nav {
+        display: block;
+    }
+
+    .centro {
+        border:2px solid white;
+        flex-direction: row;
+        justify-items: center;
+    }
+
+    .centro-izq {
+        align-items: flex-start;
+    }
+
+    .bar-busqueda {
+        padding: 2%;
+        width: 100%;
+        height: 55px;
+        border: 2px solid black;
+    }
+
+    .bar-busqueda input::placeholder{
+        font-family: "Montserrat-regular";
+        font-size: 14px;
+    }
+
+    .centro-der img{
+        display: block;
+    }
 }
