@@ -200,7 +200,7 @@ nav {
     flex-direction: column;
     gap: 15px;
     font-family: $font-semibold;
-    @extend %transition
+    @extend %transition;
 
     div {
         min-height: 200px;
@@ -222,7 +222,7 @@ nav {
         width: 90%;
         min-height: 35px;
         align-self: center;
-        @extend %transition
+        @extend %transition;
     }
 
     button:hover {
