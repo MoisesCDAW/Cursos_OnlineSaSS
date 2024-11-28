@@ -13,6 +13,23 @@
     src: url("fuente/Montserrat/static/Montserrat-SemiBold.ttf");
 }
 
+$color-principal: white;
+$color-secundario: black;
+$font-light: "Montserrat-light";
+$font-regular: "Montserrat-regular";
+$font-semibold: "Montserrat-semibold";
+
+
+@mixin temaBotones($uno, $dos) {
+    color: $uno;
+    background-color: $dos;
+    border: 1px solid $dos;
+}
+
+%transition {
+    transition: all ease-in-out 0.15s;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -32,34 +49,21 @@ body {
 // ======================= BARRA NAVEGABLE =======================
 nav {
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: space-around;
-    display: none;                  // PENDIENTE
+    
+    a {
+        text-decoration: none;
+        color: $color-secundario;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 5%;
+    }
 }
 
-nav a {
-    text-decoration: none;
-    color: black;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 5%;
-}
-
-#registro, #planes {
-    color: white;
-    background-color: black;
-    border: 1px solid black;
-}
-
-
-#registro:hover, #planes:hover {
-    color: black;
-    background: white;
-    border: 1px solid white;
-}
 
 // ======================= CENTRO INICIO =======================
 
@@ -68,90 +72,93 @@ nav ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    .centro-izq {
+        padding: 7%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .centro-text {
+        color: $color-principal;
+        padding-left: 1.5%;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    
+        h1 {
+            font-family: $font-semibold;
+            letter-spacing: 5px;
+        }
+        
+        p {
+            font-family: $font-light;
+            letter-spacing: .5px;
+        }
+    }
+
+    .centro-der img{
+        display: none;
+    }
 }
 
-// ============= CENTRO IZQ ==============
-
-.centro-izq {
-    padding: 7%;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
 
 .botones {
     display: flex;
     justify-content: center;
     gap: 7px;
+
+    button{
+        font-family: $font-regular;
+        letter-spacing: .5px;
+        font-size: 14px;
+        width: 140px;
+        height: 35px;
+        background: none;
+        border: 1px solid $color-principal;
+        border-radius: 50px;
+        color: $color-principal;
+    }
+
+    button:hover{
+        @include temaBotones($color-principal, $color-secundario);
+    }
+
+    #registro, #planes {
+        @include temaBotones($color-principal, $color-secundario);
+    }
+    
+    #registro:hover, #planes:hover {
+        @include temaBotones($color-secundario, $color-principal);
+    }
 }
 
-.botones button{
-    font-family: "Montserrat-regular";
-    letter-spacing: .5px;
-    font-size: 14px;
-    width: 140px;
-    height: 35px;
-    background: none;
-    border: 1px solid white;
-    border-radius: 50px;
-    color: white;
-}
-
-.botones button:hover{
-    color: white;
-    border: 1px solid black;
-    background-color: black;
-}
-
-.centro-text {
-    color: white;
-    padding-left: 1.5%;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.centro-text h1 {
-    font-family: "Montserrat-semibold";
-    letter-spacing: 5px;
-}
-
-.centro-text p {
-    font-family: "Montserrat-light";
-    letter-spacing: .5px;
-}
 
 .bar-busqueda {
-    background-color: white;
-    border: 2px solid white;
+    background-color: $color-principal;
+    border: 2px solid $color-principal;
     border-radius: 50px;
     padding: 3%;
     display: flex;
     justify-content: space-between;
+
+    input {
+        background: none;
+        border: none;
+        outline: none;
+        width: 90%;
+    }
+    
+    input::placeholder {
+        color: $color-secundario;
+        font-family: $font-regular;
+    }
+    
+    img {
+        width: 18px;
+    }
 }
-
-.bar-busqueda input {
-    background: none;
-    border: none;
-    outline: none;
-    width: 90%;
-}
-
-.bar-busqueda input::placeholder {
-    color: black;
-    font-family: "Montserrat-regular";
-}
-
-.bar-busqueda img {
-    width: 18px;
-}
-
-// ============= CENTRO DER ==============
-
-.centro-der img{
-    display: none;
-}
-
 
 // ======================= CURSOS =======================
 .cursos {
@@ -162,17 +169,17 @@ nav ul {
 }
 
 .cursos-izq {
-    font-family: "Montserrat-semibold";
+    font-family: $font-semibold;
     letter-spacing: 3px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    color: white;
-}
+    color: $color-principal;
 
-.cursos-izq p{
-    font-family: "Montserrat-light";
-    letter-spacing: .5px;
+    p{
+        font-family: $font-light;
+        letter-spacing: .5px;
+    }
 }
 
 .cursos-der {
@@ -185,49 +192,47 @@ nav ul {
 .carta {
     padding: 8%;
     width: 100%;
-    color: black;
-    background-color: white;
-    border: 1px solid white;
+    color: $color-secundario;
+    background-color: $color-principal;
+    border: 1px solid $color-principal;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    font-family: "Montserrat-semibold";
-    transition: all ease-in-out 0.15s;
+    font-family: $font-semibold;
+    @extend %transition
+
+    div {
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    div p {
+        font-family: $font-light;
+        font-size: 14px;
+    }
+    
+    button {
+        font-size: 14px;
+        border: 1px solid $color-secundario;
+        border-radius: 25px;
+        background: none;
+        width: 90%;
+        min-height: 35px;
+        align-self: center;
+        @extend %transition
+    }
+
+    button:hover {
+        @include temaBotones($color-principal, $color-secundario);
+    }
 } 
 
-.carta div {
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.carta div p {
-    font-family: "Montserrat-light";
-    font-size: 14px;
-}
-
-.carta button {
-    font-size: 14px;
-    border: 1px solid black;
-    border-radius: 25px;
-    background: none;
-    width: 90%;
-    min-height: 35px;
-    align-self: center;
-    transition: all ease-in-out 0.15s;
-}
-
-// ============= CARTAS HOVER ==============
 .carta:hover {
     transform: scale(1.01);
 } 
-
-.carta button:hover {
-    color: white;
-    background-color: black;
-}
 
 
 
@@ -235,37 +240,37 @@ nav ul {
 @media screen and (min-width: 1000px) {
     nav {
         display: flex;
-        font-family: "Montserrat-regular";
+        font-family: $font-regular;
         justify-content: center;
         align-items: center;
         padding: 1%;
+
+        ul {
+            justify-content: center;
+            width: 50%;
+            gap: 0;
+
+            a {
+                letter-spacing: .5px;
+                border-radius: 25px;
+                padding: 8px;
+                padding-left: 35px;
+                padding-right: 35px;
+                color: $color-principal;
+            }
+
+            a:hover {
+                border: 2px solid $color-secundario;
+                background-color: $color-secundario;
+            }
+        }
     }
 
     .logo {
-        font-family: "Montserrat-semibold";
+        font-family: $font-semibold;
         letter-spacing: 4px;
         font-size: 32px;
-        color: white;
-    }
-
-    nav ul {
-        justify-content: center;
-        width: 50%;
-        gap: 0;
-    }
-
-    nav ul a {
-        letter-spacing: .5px;
-        border-radius: 25px;
-        padding: 8px;
-        padding-left: 35px;
-        padding-right: 35px;
-        color: white;
-    }
-
-    nav ul a:hover {
-        border: 2px solid black;
-        background-color: black;
+        color: $color-principal;
     }
 
     .centro {
@@ -273,51 +278,54 @@ nav ul {
         flex-direction: row;
         justify-items: center;
         align-items: center;
-        gap: 10%;
+        gap: 2%;
+
+        .centro-izq {
+            padding: 0;
+            align-items: flex-start;
+            width: 50%;
+    
+            
+            h1 {
+                font-size: 42px;
+            }
+        }
+
+        .centro-der img{
+            display: block;
+            width: 500px;
+        }
     }
 
-    .centro-izq {
-        padding: 0;
-        align-items: flex-start;
-        width: 50%;
-    }
-
-    .centro-izq h1 {
-        font-size: 42px;
-    }
 
     .bar-busqueda {
         padding: 2%;
         width: 100%;
         height: 60px;
-        border: 2px solid white;
-    }
+        border: 2px solid $color-principal;
 
-    .bar-busqueda input::placeholder{
-        font-family: "Montserrat-regular";
-        font-size: 14px;
+        input::placeholder{
+            font-family: $font-regular;
+            font-size: 14px;
+        }
     }
-
-    .centro-der img{
-        display: block;
-    }
-
+    
     .botones button{
-        border: 2px solid white;
+        border: 2px solid $color-principal;
     }
 
     .cursos {
-        padding-left: 11%;
+        padding-left: 13%;
         grid-template-columns: 25% 1fr;
         gap: 4%;
-    }
 
-    .cursos-der {
-        grid-template-columns: repeat(4, 20%);
-    }
+        .cursos-der {
+            grid-template-columns: repeat(4, 20%);
+        }
 
-    .carta:hover {
-        transform: none;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.303);
+        .carta:hover {
+            transform: none;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.303);
+        }
     }
 }

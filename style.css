@@ -28,32 +28,17 @@ body {
 
 nav {
   width: 100%;
-  display: flex;
-  justify-content: space-around;
   display: none;
+  justify-content: space-around;
 }
-
 nav a {
   text-decoration: none;
   color: black;
 }
-
 nav ul {
   list-style: none;
   display: flex;
   gap: 5%;
-}
-
-#registro, #planes {
-  color: white;
-  background-color: black;
-  border: 1px solid black;
-}
-
-#registro:hover, #planes:hover {
-  color: black;
-  background: white;
-  border: 1px solid white;
 }
 
 .centro {
@@ -62,12 +47,29 @@ nav ul {
   flex-direction: column;
   justify-content: center;
 }
-
-.centro-izq {
+.centro .centro-izq {
   padding: 7%;
   display: flex;
   flex-direction: column;
   gap: 25px;
+}
+.centro .centro-text {
+  color: white;
+  padding-left: 1.5%;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.centro .centro-text h1 {
+  font-family: "Montserrat-semibold";
+  letter-spacing: 5px;
+}
+.centro .centro-text p {
+  font-family: "Montserrat-light";
+  letter-spacing: 0.5px;
+}
+.centro .centro-der img {
+  display: none;
 }
 
 .botones {
@@ -75,7 +77,6 @@ nav ul {
   justify-content: center;
   gap: 7px;
 }
-
 .botones button {
   font-family: "Montserrat-regular";
   letter-spacing: 0.5px;
@@ -87,29 +88,20 @@ nav ul {
   border-radius: 50px;
   color: white;
 }
-
 .botones button:hover {
   color: white;
-  border: 1px solid black;
   background-color: black;
+  border: 1px solid black;
 }
-
-.centro-text {
+.botones #registro, .botones #planes {
   color: white;
-  padding-left: 1.5%;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
+  background-color: black;
+  border: 1px solid black;
 }
-
-.centro-text h1 {
-  font-family: "Montserrat-semibold";
-  letter-spacing: 5px;
-}
-
-.centro-text p {
-  font-family: "Montserrat-light";
-  letter-spacing: 0.5px;
+.botones #registro:hover, .botones #planes:hover {
+  color: black;
+  background-color: white;
+  border: 1px solid white;
 }
 
 .bar-busqueda {
@@ -120,30 +112,22 @@ nav ul {
   display: flex;
   justify-content: space-between;
 }
-
 .bar-busqueda input {
   background: none;
   border: none;
   outline: none;
   width: 90%;
 }
-
 .bar-busqueda input::-moz-placeholder {
   color: black;
   font-family: "Montserrat-regular";
 }
-
 .bar-busqueda input::placeholder {
   color: black;
   font-family: "Montserrat-regular";
 }
-
 .bar-busqueda img {
   width: 18px;
-}
-
-.centro-der img {
-  display: none;
 }
 
 .cursos {
@@ -161,7 +145,6 @@ nav ul {
   gap: 10px;
   color: white;
 }
-
 .cursos-izq p {
   font-family: "Montserrat-light";
   letter-spacing: 0.5px;
@@ -187,19 +170,16 @@ nav ul {
   font-family: "Montserrat-semibold";
   transition: all ease-in-out 0.15s;
 }
-
 .carta div {
   min-height: 200px;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-
 .carta div p {
   font-family: "Montserrat-light";
   font-size: 14px;
 }
-
 .carta button {
   font-size: 14px;
   border: 1px solid black;
@@ -210,14 +190,14 @@ nav ul {
   align-self: center;
   transition: all ease-in-out 0.15s;
 }
-
-.carta:hover {
-  transform: scale(1.01);
-}
-
 .carta button:hover {
   color: white;
   background-color: black;
+  border: 1px solid black;
+}
+
+.carta:hover {
+  transform: scale(1.01);
 }
 
 @media screen and (min-width: 1000px) {
@@ -227,12 +207,6 @@ nav ul {
     justify-content: center;
     align-items: center;
     padding: 1%;
-  }
-  .logo {
-    font-family: "Montserrat-semibold";
-    letter-spacing: 4px;
-    font-size: 32px;
-    color: white;
   }
   nav ul {
     justify-content: center;
@@ -251,20 +225,30 @@ nav ul {
     border: 2px solid black;
     background-color: black;
   }
+  .logo {
+    font-family: "Montserrat-semibold";
+    letter-spacing: 4px;
+    font-size: 32px;
+    color: white;
+  }
   .centro {
     padding-top: 2%;
     flex-direction: row;
     justify-items: center;
     align-items: center;
-    gap: 10%;
+    gap: 2%;
   }
-  .centro-izq {
+  .centro .centro-izq {
     padding: 0;
     align-items: flex-start;
     width: 50%;
   }
-  .centro-izq h1 {
+  .centro .centro-izq h1 {
     font-size: 42px;
+  }
+  .centro .centro-der img {
+    display: block;
+    width: 500px;
   }
   .bar-busqueda {
     padding: 2%;
@@ -280,21 +264,18 @@ nav ul {
     font-family: "Montserrat-regular";
     font-size: 14px;
   }
-  .centro-der img {
-    display: block;
-  }
   .botones button {
     border: 2px solid white;
   }
   .cursos {
-    padding-left: 11%;
+    padding-left: 13%;
     grid-template-columns: 25% 1fr;
     gap: 4%;
   }
-  .cursos-der {
+  .cursos .cursos-der {
     grid-template-columns: repeat(4, 20%);
   }
-  .carta:hover {
+  .cursos .carta:hover {
     transform: none;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.303);
   }
