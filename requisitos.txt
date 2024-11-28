@@ -1,0 +1,5 @@
+@use, permite acceder a elementos de otro archivo.scss
+@mixin, parecido al funcionamiento de una función. Puede o no recibir parámetros
+@include, para llamar a la función. Se usa nombreFuncion o nombreFuncion(parámetros)
+%nombreConst, constante que viene con ciertas propiedades predefinidas
+@extend, para hacer uso de la constante

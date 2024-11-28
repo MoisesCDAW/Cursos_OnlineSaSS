@@ -32,10 +32,14 @@ body {
 // ======================= BARRA NAVEGABLE =======================
 nav {
     width: 100%;
-    border: 2px solid white;
     display: flex;
     justify-content: space-around;
     display: none;                  // PENDIENTE
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
 }
 
 nav ul {
@@ -44,6 +48,18 @@ nav ul {
     gap: 5%;
 }
 
+#registro, #planes {
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+}
+
+
+#registro:hover, #planes:hover {
+    color: black;
+    background: white;
+    border: 1px solid white;
+}
 
 // ======================= CENTRO INICIO =======================
 
@@ -72,28 +88,23 @@ nav ul {
 .botones button{
     font-family: "Montserrat-regular";
     letter-spacing: .5px;
+    font-size: 14px;
     width: 140px;
     height: 35px;
     background: none;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 50px;
-}
-
-#planes {
     color: white;
-    background-color: black;
 }
 
 .botones button:hover{
     color: white;
-    border: 1px solid white;
-}
-
-#planes:hover {
-    background: none;
+    border: 1px solid black;
+    background-color: black;
 }
 
 .centro-text {
+    color: white;
     padding-left: 1.5%;
     display: flex;
     flex-direction: column;
@@ -111,15 +122,12 @@ nav ul {
 }
 
 .bar-busqueda {
-    border: 1px solid black;
+    background-color: white;
+    border: 2px solid white;
     border-radius: 50px;
     padding: 3%;
     display: flex;
     justify-content: space-between;
-}
-
-.bar-busqueda:hover {
-    border: 1px solid white;
 }
 
 .bar-busqueda input {
@@ -130,7 +138,8 @@ nav ul {
 }
 
 .bar-busqueda input::placeholder {
-    color: rgba(0, 0, 0, 0.503);
+    color: black;
+    font-family: "Montserrat-regular";
 }
 
 .bar-busqueda img {
@@ -158,6 +167,7 @@ nav ul {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    color: white;
 }
 
 .cursos-izq p{
@@ -175,7 +185,9 @@ nav ul {
 .carta {
     padding: 8%;
     width: 100%;
-    border: 1px solid black;
+    color: black;
+    background-color: white;
+    border: 1px solid white;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -204,6 +216,7 @@ nav ul {
     width: 90%;
     min-height: 35px;
     align-self: center;
+    transition: all ease-in-out 0.15s;
 }
 
 // ============= CARTAS HOVER ==============
@@ -213,32 +226,71 @@ nav ul {
 
 .carta button:hover {
     color: white;
-    border: 1px solid white;
+    background-color: black;
 }
 
 
 
-// ================================== ORDENADORES ======================================
+// ================================== VISTA PANTALLAS GRANDES ======================================
 @media screen and (min-width: 1000px) {
     nav {
-        display: block;
+        display: flex;
+        font-family: "Montserrat-regular";
+        justify-content: center;
+        align-items: center;
+        padding: 1%;
+    }
+
+    .logo {
+        font-family: "Montserrat-semibold";
+        letter-spacing: 4px;
+        font-size: 32px;
+        color: white;
+    }
+
+    nav ul {
+        justify-content: center;
+        width: 50%;
+        gap: 0;
+    }
+
+    nav ul a {
+        letter-spacing: .5px;
+        border-radius: 25px;
+        padding: 8px;
+        padding-left: 35px;
+        padding-right: 35px;
+        color: white;
+    }
+
+    nav ul a:hover {
+        border: 2px solid black;
+        background-color: black;
     }
 
     .centro {
-        border:2px solid white;
+        padding-top: 2%;
         flex-direction: row;
         justify-items: center;
+        align-items: center;
+        gap: 10%;
     }
 
     .centro-izq {
+        padding: 0;
         align-items: flex-start;
+        width: 50%;
+    }
+
+    .centro-izq h1 {
+        font-size: 42px;
     }
 
     .bar-busqueda {
         padding: 2%;
         width: 100%;
-        height: 55px;
-        border: 2px solid black;
+        height: 60px;
+        border: 2px solid white;
     }
 
     .bar-busqueda input::placeholder{
@@ -248,5 +300,24 @@ nav ul {
 
     .centro-der img{
         display: block;
+    }
+
+    .botones button{
+        border: 2px solid white;
+    }
+
+    .cursos {
+        padding-left: 11%;
+        grid-template-columns: 25% 1fr;
+        gap: 4%;
+    }
+
+    .cursos-der {
+        grid-template-columns: repeat(4, 20%);
+    }
+
+    .carta:hover {
+        transform: none;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.303);
     }
 }
